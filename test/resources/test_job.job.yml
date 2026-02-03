@@ -8,7 +8,7 @@ resources:
       schedule:
         quartz_cron_expression: 00 30 10 * * ?
         timezone_id: Europe/Paris
-        pause_status: UNPAUSED
+        pause_status: PAUSED
 
       #trigger:
         # Run this job every day, exactly one day from the last run; see https://docs.databricks.com/api/workspace/jobs/create#trigger

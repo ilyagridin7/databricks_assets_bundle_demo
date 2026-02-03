@@ -1,4 +1,4 @@
-CREATE MATERIALIZED VIEW dbt_formation.default.silver_products AS
+CREATE MATERIALIZED VIEW dbt_formation.ilya_gridin.silver_products AS
 SELECT
     id,
     created_at,
@@ -7,4 +7,4 @@ SELECT
     ean,
     vendor,
     price
-FROM dbt_formation.default.bronze_products;
+FROM dbt_formation.ilya_gridin.bronze_products;

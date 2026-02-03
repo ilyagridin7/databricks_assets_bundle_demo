@@ -1,4 +1,4 @@
-CREATE OR REFRESH STREAMING TABLE dbt_formation.default.bronze_products
+CREATE OR REFRESH STREAMING TABLE dbt_formation.ilya_gridin.bronze_products
 AS
 SELECT
 * 

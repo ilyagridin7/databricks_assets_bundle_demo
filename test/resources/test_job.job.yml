@@ -3,13 +3,18 @@
 resources:
   jobs:
     sample_job:
-      name: sample_job
+      name: test_job
 
-      trigger:
+      schedule:
+        quartz_cron_expression: 00 30 10 * * ?
+        timezone_id: Europe/Paris
+        pause_status: UNPAUSED
+
+      #trigger:
         # Run this job every day, exactly one day from the last run; see https://docs.databricks.com/api/workspace/jobs/create#trigger
-        periodic:
-          interval: 1
-          unit: DAYS
+      #  periodic:
+      #    interval: 1
+      #    unit: DAYS
 
       #email_notifications:
       #  on_failure:
@@ -25,6 +30,14 @@ resources:
         - task_key: refresh_pipeline
           pipeline_task:
             pipeline_id: ${resources.pipelines.test_etl.id}
+            full_refresh: false
+          email_notifications:
+            on_failure:
+              - ilya.gridin@ragt.com
+
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
 
       environments:
         - environment_key: default
